@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>G500 - Descarga MI APP G500</title>
+<meta name="ad.size" content="width=970,height=250">
+<style>
+  html,body{margin:0;padding:0;}
+  #banner{
+    position:relative;
+    width:970px;
+    height:250px;
+    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0a2a6b;
+    cursor:pointer;
+  }
+  #banner img,#banner .layer{
+    position:absolute;
+    display:block;
+  }
+
+  /* ---- Base / siempre presentes desde el inicio ---- */
+  .bg{
+    top:0;left:0;width:970px;height:250px;
+    object-fit:cover;
+  }
+
+  .stars{
+    top:8px;left:113px;width:743px;height:229px;
+    opacity:.85;
+    animation:twinkle 2.6s ease-in-out .6s infinite;
+  }
+
+  /* cobranding + escudo (LMB/G500 + Juega Limpio) */
+  .g500lgo{
+    left:707px;top:16px;width:248px;height:98px;
+  }
+
+  /* legal */
+  .disclaimer{
+    left:707px;top:236px;width:249px;height:10px;
+  }
+
+  /* ---- PASO 1: jugadores, aparición muy sutil ---- */
+  .jugadores{
+    left:322px;top:9px;width:357px;height:241px;
+    opacity:0;
+    transform:translateY(10px);
+    animation:subtleFadeUp 1.1s ease-out .15s forwards;
+  }
+
+  /* ---- PASO 2: copy (Suma monedas / Y gana premios), línea por línea, derecha -> izquierda ---- */
+  /* centrados respecto al ancho del CTA (download.png: left 14px, width 299px -> centro 163.5px) */
+  .suma{
+    left:54px;top:118px;width:219px;height:45px;
+    opacity:0;
+    transform:translateX(30px);
+    animation:slideInLine .5s cubic-bezier(.22,.9,.32,1) 1.05s forwards;
+  }
+
+  .gana{
+    left:53px;top:168px;width:222px;height:43px;
+    opacity:0;
+    transform:translateX(30px);
+    animation:slideInLine .5s cubic-bezier(.22,.9,.32,1) 1.35s forwards;
+  }
+
+  /* ---- PASO 3: CTA (Descarga MI APP G500), aparece al final ---- */
+  .download{
+    left:14px;top:10px;width:299px;height:105px;
+    opacity:0;
+    transform:scale(.82);
+    transform-origin:left center;
+    animation:ctaPop .55s cubic-bezier(.34,1.56,.64,1) 1.75s forwards,
+              pulse 2.4s ease-in-out 2.5s infinite;
+  }
+
+  @keyframes subtleFadeUp{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes slideInLine{ from{opacity:0; transform:translateX(30px);} to{opacity:1; transform:translateX(0);} }
+  @keyframes ctaPop{ from{opacity:0; transform:scale(.82);} to{opacity:1; transform:scale(1);} }
+  @keyframes twinkle{ 0%,100%{opacity:.55;} 50%{opacity:1;} }
+  @keyframes pulse{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.035);} }
+</style>
+</head>
+<body>
+  <div id="banner" onclick="handleExit()">
+    <img class="bg layer" src="assets/background.jpg" alt="">
+    <img class="stars layer" src="assets/stars.png" alt="">
+    <img class="g500lgo layer" src="assets/g500_lgo.png" alt="LMB G500 Patrocinador oficial - Juega Limpio">
+    <img class="disclaimer layer" src="assets/disclaimer.png" alt="Consulta términos y condiciones en Mi App G500">
+
+    <img class="jugadores layer" src="assets/jugadores.png" alt="">
+
+    <img class="suma layer" src="assets/suma.png" alt="Suma monedas">
+    <img class="gana layer" src="assets/gana.png" alt="Y gana premios">
+
+    <img class="download layer" src="assets/download.png" alt="Descarga MI APP G500">
+  </div>
+
+<script>
+  // DV360 / GAM click-through — reemplazar por la URL final antes de subir el tag.
+  var clickTag = "https://www.miappg500.com/";
+
+  function handleExit(){
+    if (window.open) { window.open(clickTag, "_blank"); }
+  }
+</script>
+</body>
+</html>
